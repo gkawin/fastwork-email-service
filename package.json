@@ -23,5 +23,6 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "name": "fastwork-email-service"
 }
