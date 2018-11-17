@@ -1,0 +1,16 @@
+{
+  "name": "email-service",
+  "version": "1.0.0",
+  "typing": "./typings/index.d.ts",
+  "main": "./dist/index.js",
+  "author": "Kawin Glomjai <g.kawin@live.com>",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "cross-env NODE_ENV=production && yarn clean && tsc",
+    "lint": "tslint -p tsconfig.json",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
