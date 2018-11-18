@@ -9,7 +9,7 @@ const servers = [
 function handler(serverNum: number) {
   return (req: express.Request, res: express.Response) => {
     console.log(`server ${serverNum}`, req.method, req.url, req.body);
-    setTimeout(() => { res.send(`Hello from server ${serverNum}!`); }, 10000);
+    res.send(`Hello from server ${serverNum}!`)
   }
 }
 
