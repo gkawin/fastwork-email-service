@@ -1,38 +1,26 @@
 version: "3"
 services:
-  api: 
-    image: "node:alpine"
-    depends_on:
-      - "redis"
-      - "mongo"
-    volumes:
-      - "./server:/home/node/api"
-    working_dir: "/home/node/api"
-    command: "yarn start"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "100MB"
-        max-file: "3"
-
-  redis:
-    restart: "always"
-    container_name: "redis"
-    image: "redis:latest"
-    volumes:
-      - "redis:/data/"
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     ports:
-      - "6379:6379"
+      - "9100:80"
+  # app: 
+  #   build:
+  #     context: ./app
+  #     dockerfile: ./packages/email-service/Dockerfile
+  #     expose:
+  #       - 8080
+  
+  # mongo:
+  #   restart: "always"
+  #   container_name: "mongodb"
+  #   image: "mongo:latest"
+  #   volumes:
+  #     - "mongodb:/data/db/"
+  #   ports:
+  #     - "27017:27017"
 
-  mongo:
-    restart: "always"
-    container_name: "mongodb"
-    image: "mongo:latest"
-    volumes:
-      - "mongodb:/data/db/"
-    ports:
-      - "27017:27017"
-
-volumes:
-  mongodb:
-  redis:
+# volumes:
+#   mongodb:
