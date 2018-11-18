@@ -13,4 +13,4 @@ RUN yarn --pure-lockfile
 
 COPY . /usr/src/app
 
-CMD [ "pm2-runtime", "process.yml" ]
+CMD [ "pm2-runtime", "process.json" ]
