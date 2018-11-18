@@ -3,8 +3,10 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "declaration": true,
-    "declarationDir": "./typings"
+    "types": [
+      "node",
+      "express"
+    ],
   },
   "include": [
     "src"

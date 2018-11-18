@@ -13,8 +13,8 @@ export default class SendingFormContainer extends React.PureComponent {
     this.setState({ input: { [name]: value } })
   }
 
-  onSubmitForm = async (mailto = '') => {
-    console.log(await submitCampaign(mailto))
+  onSubmitForm = async () => {
+    console.log(await submitCampaign(JSON.stringify(this.state.input)))
   }
 
   render() {
