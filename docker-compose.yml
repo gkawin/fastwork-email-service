@@ -1,18 +1,23 @@
 version: "3"
 services:
   nginx:
+    restart: always
     build:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
       - "9100:80"
-  # app: 
-  #   build:
-  #     context: ./app
-  #     dockerfile: ./packages/email-service/Dockerfile
-  #     expose:
-  #       - 8080
-  
+    depends_on: 
+      - test_app1
+
+  test_app1:
+    build:
+      context: ./packages/email-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+
   # mongo:
   #   restart: "always"
   #   container_name: "mongodb"
