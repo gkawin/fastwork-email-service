@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { submitCampaign } from '../../services'
 
 export default class SendingFormContainer extends React.PureComponent {
   static propTypes = {
@@ -12,11 +13,11 @@ export default class SendingFormContainer extends React.PureComponent {
     this.setState({ input: { [name]: value } })
   }
 
-  onSubmitForm = () => {
-    console.log(this.state)
+  onSubmitForm = async (mailto = '') => {
+    console.log(await submitCampaign(mailto))
   }
 
-  render () {
+  render() {
     return (this.props.children({
       onChange: this.onChangeInput,
       onSubmit: this.onSubmitForm
