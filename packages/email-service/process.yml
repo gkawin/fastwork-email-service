@@ -12,7 +12,7 @@ apps:
   - script   : dist/index.js
     name     : email-service__II
     exec_mode: cluster
-    instances: 1
+    instances: 2
     autorestart: true
     max_memory_restart: 1G
     env:
