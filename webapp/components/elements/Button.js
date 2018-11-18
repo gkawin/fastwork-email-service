@@ -14,6 +14,7 @@ export default class Button extends React.PureComponent {
         <button
           onClick={this.props.onClick}
           className='button__button'
+          {...this.props}
         >
           {this.props.children}
         </button>
