@@ -1,0 +1,38 @@
+version: "3"
+services:
+  api: 
+    image: "node:alpine"
+    depends_on:
+      - "redis"
+      - "mongo"
+    volumes:
+      - "./server:/home/node/api"
+    working_dir: "/home/node/api"
+    command: "yarn start"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  redis:
+    restart: "always"
+    container_name: "redis"
+    image: "redis:latest"
+    volumes:
+      - "redis:/data/"
+    ports:
+      - "6379:6379"
+
+  mongo:
+    restart: "always"
+    container_name: "mongodb"
+    image: "mongo:latest"
+    volumes:
+      - "mongodb:/data/db/"
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodb:
+  redis:
