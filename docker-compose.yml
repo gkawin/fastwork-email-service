@@ -1,5 +1,15 @@
 version: "3"
 services:
+  test_app1:
+    build:
+      context: ./packages/email-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - mongodb
+
   nginx:
     restart: always
     build:
@@ -10,22 +20,11 @@ services:
     depends_on: 
       - test_app1
 
-  test_app1:
-    build:
-      context: ./packages/email-service
+  mongodb:
+    restart: "always"
+    container_name: "mongodb"
+    build: 
+      context: ./mongodb
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
-      - "8081:8081"
-
-  # mongo:
-  #   restart: "always"
-  #   container_name: "mongodb"
-  #   image: "mongo:latest"
-  #   volumes:
-  #     - "mongodb:/data/db/"
-  #   ports:
-  #     - "27017:27017"
-
-# volumes:
-#   mongodb:
+      - "27017:27017"
