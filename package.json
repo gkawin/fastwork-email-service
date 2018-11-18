@@ -5,7 +5,8 @@
     "test": "jest",
     "dev": "lerna run dev --no-sort --stream --concurrency 999",
     "lint": "lerna run lint --stream --concurrency 999",
-    "ws:email-service": "yarn workspace email-service"
+    "pk:email-service": "yarn workspace email-service",
+    "webapp": "yarn workspace webapp"
   },
   "devDependencies": {
     "@types/node": "^10.12.9",
@@ -23,7 +24,8 @@
     "node": "^8.11.3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "webapp"
   ],
   "name": "fastwork-email-service"
 }
