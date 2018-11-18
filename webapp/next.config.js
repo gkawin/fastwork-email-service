@@ -4,6 +4,8 @@ const enhancer = withStylus
 
 module.exports = enhancer({
   exportPathMap: () => ({
-    '/': { page: '/' },
+    '/': { page: '/campaign' },
+    '/campaign': { page: '/campaign' },
+    '/activity': { page: '/activity' },
   })
 })

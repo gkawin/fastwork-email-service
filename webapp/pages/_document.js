@@ -4,12 +4,15 @@ import Document, { Head, Main, NextScript } from 'next/document'
 export default class AppDocument extends Document {
   render() {
     return (
-      <html lang='th'>
+      <html lang='en'>
         <Head>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <style jsx global>{`
             html {
               box-sizing: border-box;
+            }
+            body {
+              margin: 0;
             }
             *, *:before, *:after {
               box-sizing: inherit;
