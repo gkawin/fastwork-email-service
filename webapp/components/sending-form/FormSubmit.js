@@ -29,7 +29,6 @@ export default class FormSubmit extends React.PureComponent {
           onChange={this.onChange}
           name='email.input'
         />
-        <Button>Send The Email</Button>
       </form>
     )
   }

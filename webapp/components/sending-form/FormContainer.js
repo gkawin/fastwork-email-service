@@ -13,7 +13,8 @@ export default class FormContainer extends React.PureComponent {
     this.setState({ input: { [name]: value } })
   }
 
-  onSubmitForm = async () => {
+  onSubmitForm = async (e) => {
+    e.preventDefault()
     console.log(await submitCampaign(JSON.stringify(this.state.input)))
   }
 
