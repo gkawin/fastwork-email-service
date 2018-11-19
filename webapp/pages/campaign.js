@@ -1,19 +1,16 @@
 
 import React from 'react'
-
-import SendingFormContainer from '../components/sending-form/SendingFormContainer'
-import SendingForm from '../components/sending-form'
-
+import { FormContainer, FormSubmit } from '../components/sending-form'
 
 export default function Campaign() {
 	return (
-		<SendingFormContainer>
+		<FormContainer>
 			{({ onChange, onSubmit }) => (
-				<SendingForm
+				<FormSubmit
 					onChange={onChange}
 					onSubmit={onSubmit}
 				/>
 			)}
-		</SendingFormContainer>
+		</FormContainer>
 	)
 } 

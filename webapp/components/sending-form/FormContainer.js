@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { submitCampaign } from '../../services'
 
-export default class SendingFormContainer extends React.PureComponent {
+export default class FormContainer extends React.PureComponent {
   static propTypes = {
     children: PropTypes.func
   }
