@@ -14,7 +14,7 @@ export default class Campaign extends React.PureComponent {
 
 	static MAX_ROWS = 5
 
-	onAddMailInput = (to = '', id = ) => () => this.setState((state) => {
+	onAddMailInput = (to = '') => () => this.setState((state) => {
 		const hasMaximum = state.mails.length === Campaign.MAX_ROWS
 		const mails = hasMaximum ? state.mails : state.mails.concat([{ to }])
 		return { mails, disabledButton: hasMaximum }
@@ -24,8 +24,7 @@ export default class Campaign extends React.PureComponent {
 		const { value, name } = e.target
 		const row = name.split('-')[1]
 		this.setState((state) => {
-			console.log(updateIn(value, row)(state.mails))
-			return {}
+			return updateIn(value, row)(state.mails)
 		})
 	}
 
@@ -56,6 +55,7 @@ export default class Campaign extends React.PureComponent {
 	)
 
 	render() {
+		console.log(this.state.mails)
 		return (
 			<FormContainer>
 				{({ onSubmit }) => (

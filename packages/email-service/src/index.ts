@@ -1,9 +1,11 @@
+
 import body from 'body-parser'
 import cors from 'cors'
 import express from 'express'
 
+import './bootstrap'
+
 import mailto from './mailto';
-// import request from 'request'
 
 const app = express()
 const port = process.env.PORT || 9100
