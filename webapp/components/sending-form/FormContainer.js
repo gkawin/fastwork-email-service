@@ -7,14 +7,8 @@ export default class FormContainer extends React.PureComponent {
     children: PropTypes.func
   }
 
-  state = { input: {} }
-
-  onChangeInput = (name, value) => {
-    this.setState({ input: { [name]: value } })
-  }
-
-  onSubmitForm = async (e) => {
-    e.preventDefault()
+  onSubmitForm = (mails = []) => async () => {
+    console.log(mails)
     console.log(await submitCampaign(JSON.stringify(this.state.input)))
   }
 
