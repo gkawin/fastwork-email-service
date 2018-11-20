@@ -6,11 +6,12 @@ export default function mailto(req: express.Request, res: express.Response, next
   // db.get().then((respose) => {
   //   respose.collection('test').insertOne(req.body)
   // }).catch(console.log)
-  const email = new Email()
+  const email = new Email({
+    engine: 'SENDGRID'
+  })
   email
-    .subject('hello')
-    .text('ba')
     .subject('test mail')
+    .text('ba')
     .sentTo('g.kawin@live.com')
   res.send({ fuck: 'you' })
   next()
