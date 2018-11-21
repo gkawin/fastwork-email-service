@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import fs from 'fs'
-// import mongoose from 'mongoose'
 
 const loadConfig = (path: string) => {
   if (fs.existsSync(path)) {
@@ -12,5 +11,3 @@ const loadConfig = (path: string) => {
 }
 
 loadConfig('.env')
-// mongoose.Promise = require('bluebird')
-// mongoose.connect('mongodb://localhost/mh_login')

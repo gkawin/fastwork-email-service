@@ -1,0 +1,1 @@
+export { default as mailto } from './mailto'

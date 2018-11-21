@@ -5,7 +5,7 @@ import express from 'express'
 
 import './bootstrap'
 
-import mailto from './mailto';
+import { mailto } from './routes';
 
 const app = express()
 const port = process.env.PORT || 9100

@@ -1,6 +1,6 @@
 import { Db, MongoClient } from 'mongodb'
 
-class DBConnection {
+class DBConnect {
   private url = 'mongodb://localhost:27017'
   private dbname = 'email_service'
   private client: MongoClient | null = null
@@ -33,4 +33,4 @@ class DBConnection {
   }
 }
 
-export default new DBConnection()
+export default new DBConnect().get()
