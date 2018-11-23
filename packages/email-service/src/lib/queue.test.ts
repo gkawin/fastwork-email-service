@@ -6,16 +6,16 @@ describe('logic', () => {
   it('should push item into stack', () => {
     const expected = [
       { key: 'k', priority: 'p' },
-      { key: 'eko', priority: 'best application' }
+      { key: 'da', priority: 'best application' }
     ]
     nodes.enQueue('p', 'k')
-    nodes.enQueue('best application', 'eko')
+    nodes.enQueue('best application', 'da')
     expect(nodes.getQueue()).toEqual(expect.objectContaining(expected))
   })
 
   it('should de-queue with FIFO style', () => {
     const expected = [
-      { key: 'eko', priority: 'best application' }
+      { key: 'da', priority: 'best application' }
     ]
     nodes.deQueue()
     expect(nodes.getQueue()).toEqual(expect.objectContaining(expected))

@@ -1,21 +1,20 @@
-export default class Queue {
-  private nodes: any[] = []
+import { IEmailForm } from "../Email/MailBuilder";
 
-  public enQueue(priority: string, key: string) {
+interface INode {
+  key: string,
+  priority: string | IEmailForm
+}
+export default class Queue {
+  private nodes: INode[] = []
+
+  public enQueue(priority: string | IEmailForm, key: string) {
     this.nodes.push({ key, priority })
-    // could be sorted by node label (DESC)
-    this.sort()
   }
 
   public deQueue() {
-    return this.nodes.shift().key
+    return this.nodes.shift()!.key
   }
 
-  public sort() {
-    this.nodes.sort((a, b) => {
-      return a.priority - b.priority
-    })
-  }
   public isEmpty() {
     return !this.nodes.length
   }

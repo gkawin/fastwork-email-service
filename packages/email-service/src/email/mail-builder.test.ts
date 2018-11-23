@@ -10,7 +10,7 @@ describe('MailBuilder', () => {
         .html('<div>WHATTTTTT</div>')
         .retry(3)
 
-      const result = JSON.parse(buildConfig.export())
+      const result = buildConfig.export()
 
       expect(result).toEqual(expect.objectContaining({
         from: 'no_reply@thebanana.co',

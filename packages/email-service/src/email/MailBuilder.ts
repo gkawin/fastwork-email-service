@@ -35,6 +35,6 @@ export default class MailBuilder {
   }
 
   public export() {
-    return JSON.stringify(this.config)
+    return this.config
   }
 }
