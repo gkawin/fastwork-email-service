@@ -7,9 +7,9 @@ export default class FormContainer extends React.PureComponent {
     children: PropTypes.func
   }
 
-  onSubmitForm = (mails = []) => async () => {
-    console.log(mails)
-    console.log(await submitCampaign(JSON.stringify(this.state.input)))
+  onSubmitForm = ({ value: mailTo }) => async (e) => {
+    e.preventDefault()
+    console.log(await submitCampaign(mailTo))
   }
 
   render() {
