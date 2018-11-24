@@ -4,6 +4,7 @@ import cors from 'cors'
 import express from 'express'
 
 import './bootstrap'
+import './db/connect'
 
 import { mailto } from './routes';
 
