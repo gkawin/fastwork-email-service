@@ -12,7 +12,16 @@ export default function mailto(req: express.Request, res: express.Response) {
     .to('g.kawin@live.com')
     .export()
 
+  const result1 = email
+    .subject('foo bar')
+    .text('what???')
+    .html('<div>bababab</div>')
+    .to('g.kawin@live.com')
+    .retry(2)
+    .export()
+
   mail.enQueue(result, 'asd')
+  mail.enQueue(result1, 'bar')
 
   console.log(mail.sendMail())
 

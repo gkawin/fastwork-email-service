@@ -3,6 +3,7 @@ import * as R from 'ramda'
 
 export interface IEmailForm extends MailData {
   retry?: number
+  provider?: any
 }
 
 export default class MailBuilder {

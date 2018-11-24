@@ -2,12 +2,12 @@ import { IEmailForm } from "../Email/MailBuilder";
 
 interface INode {
   key: string,
-  priority: string | IEmailForm
+  priority: IEmailForm
 }
 export default class Queue {
   private nodes: INode[] = []
 
-  public enQueue(priority: string | IEmailForm, key: string) {
+  public enQueue(priority: IEmailForm, key: string) {
     this.nodes.push({ key, priority })
   }
 
