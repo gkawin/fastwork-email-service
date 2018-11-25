@@ -8,7 +8,7 @@ interface IEmailHistoryField {
   status: 'FAILURE' | 'SUCCEED' | 'WAITING',
   configuration: IEmailForm,
   update_at?: Date,
-  provider?: 'SEND_GRID' | 'MAIL_GUN'
+  provider?: 'SEND_GRID' | 'SPARKPOST'
 }
 
 export interface IEmailHistoryModel extends IEmailHistoryField, Document { }
