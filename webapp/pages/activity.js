@@ -1,11 +1,31 @@
 import React from 'react'
+import FetchingLogContianer from '../components/email-log/FetchingLogContainer'
 
 export default class Activity extends React.PureComponent {
+  renderBody = (row, idx) => {
+    return (
+      <tr key={`${row.email}.${idx}`}>
+        <td>{row.email}</td>
+      </tr>
+    )
+  }
+
   render() {
     return (
-      <div>
-        hello
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>email address</td>
+            <td>status</td>
+            <td>created at</td>
+          </tr>
+        </thead>
+        <tbody>
+          <FetchingLogContianer>
+            {({ results }) => results.map(this.renderBody)}
+          </FetchingLogContianer>
+        </tbody>
+      </table>
     )
   }
 }
