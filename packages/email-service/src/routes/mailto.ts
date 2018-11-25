@@ -9,24 +9,27 @@ const email = new MailBuilder()
 
 export default async function mailto(req: express.Request, res: express.Response) {
   const to: string = R.pathOr('', ['body', 'mailto'], req)
+  const subject: string = R.pathOr('HELLO NA', ['body', 'subject'], req)
+
   const emailConfiguration = email
-    .subject('foo bar')
+    .subject(subject)
     .text('what???')
     .html('<div>bababab</div>')
-    .to('g.kawin@live.com')
+    .to(to)
     .retry(2)
     .export()
 
   try {
     const result = await emailHistoryModel.create({
       attemp: 0,
-      configuration: JSON.stringify(emailConfiguration),
+      configuration: emailConfiguration,
       create_at: new Date(),
       email: to,
       status: 'WAITING',
+      update_at: new Date(),
     } as IEmailHistoryModel)
 
-
+    mail.sendMail()
     if (R.isEmpty(result)) {
       throw new Error('cannot create model')
     }

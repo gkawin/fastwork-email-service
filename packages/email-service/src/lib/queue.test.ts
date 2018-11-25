@@ -1,3 +1,4 @@
+import { IEmailForm } from '../email/MailBuilder';
 import Queue from './Queue'
 
 describe('logic', () => {
@@ -8,8 +9,8 @@ describe('logic', () => {
       { key: 'k', priority: 'p' },
       { key: 'da', priority: 'best application' }
     ]
-    nodes.enQueue('p', 'k')
-    nodes.enQueue('best application', 'da')
+    nodes.enQueue({} as IEmailForm, 'k')
+    nodes.enQueue({} as IEmailForm, 'da')
     expect(nodes.getQueue()).toEqual(expect.objectContaining(expected))
   })
 

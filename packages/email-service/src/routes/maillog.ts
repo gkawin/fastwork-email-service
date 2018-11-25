@@ -5,7 +5,6 @@ import emailHistoryModel from "../db/models/emailHistoryModel";
 
 export default async function maillog(req: Request, res: Response): Promise<void> {
   try {
-
     const results = await emailHistoryModel.find()
     if (!R.isEmpty(results)) {
       res.send(results.map((result) =>

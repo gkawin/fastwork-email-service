@@ -10,4 +10,5 @@ function createConnection() {
   }
 }
 
+mongoose.set('useFindAndModify', false)
 createConnection()
