@@ -6,6 +6,8 @@ export default class Activity extends React.PureComponent {
     return (
       <tr key={`${row.email}.${idx}`}>
         <td>{row.email}</td>
+        <td>{row.status}</td>
+        <td>{row.create_at}</td>
       </tr>
     )
   }

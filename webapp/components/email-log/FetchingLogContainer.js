@@ -19,7 +19,6 @@ export default class FetchingLogContianer extends React.PureComponent {
 
   render() {
     const results = this.state.error ? [] : this.state.emailLogs
-    console.log(results)
     return (
       this.props.children({ results })
     )
