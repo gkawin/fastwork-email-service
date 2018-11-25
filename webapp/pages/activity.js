@@ -1,3 +1,5 @@
+import './activity.styl'
+
 import React from 'react'
 import FetchingLogContianer from '../components/email-log/FetchingLogContainer'
 
@@ -8,17 +10,19 @@ export default class Activity extends React.PureComponent {
         <td>{row.email}</td>
         <td>{row.status}</td>
         <td>{row.create_at}</td>
+        <td>{row.provider}</td>
       </tr>
     )
   }
 
   render() {
     return (
-      <table>
+      <table className='activity__table' border='1'>
         <thead>
           <tr>
             <td>email address</td>
             <td>status</td>
+            <td>provider</td>
             <td>created at</td>
           </tr>
         </thead>

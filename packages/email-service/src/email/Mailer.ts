@@ -1,6 +1,6 @@
 import sendGrid from '@sendgrid/mail'
 import * as Rx from 'rxjs'
-import { catchError, delayWhen, map, mergeMap, retryWhen, switchMap, takeWhile, tap } from 'rxjs/operators'
+import { delayWhen, mergeMap, retryWhen, switchMap, takeWhile } from 'rxjs/operators'
 import SparkPost from 'sparkpost'
 
 import emailHistoryModel, { IEmailHistoryModel } from '../db/models/emailHistoryModel'
@@ -8,8 +8,6 @@ import emailHistoryModel, { IEmailHistoryModel } from '../db/models/emailHistory
 const findAll$ = (ids: string[]) => Rx.from(Promise.all<IEmailHistoryModel>(
   ids.concat.apply([], ids).map(((id: string) => emailHistoryModel.findOne({ _id: id })))
 ))
-
-
 
 export default class Mailer {
   private sparkPost = {} as SparkPost

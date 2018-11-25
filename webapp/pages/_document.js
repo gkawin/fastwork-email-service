@@ -7,11 +7,13 @@ export default class AppDocument extends Document {
       <html lang='en'>
         <Head>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"></link>
           <style jsx global>{`
             html {
               box-sizing: border-box;
             }
             body {
+              font-family: 'Roboto', sans-serif;
               margin: 0;
             }
             *, *:before, *:after {

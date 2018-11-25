@@ -8,7 +8,12 @@ export default async function maillog(req: Request, res: Response): Promise<void
     const results = await emailHistoryModel.find()
     if (!R.isEmpty(results)) {
       res.send(results.map((result) =>
-        ({ email: result.email, status: result.status, create_at: result.create_at })
+        ({
+          create_at: result.create_at,
+          email: result.email,
+          provider: result.provider,
+          status: result.status,
+        })
       ))
     }
   } catch (error) {
