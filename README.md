@@ -30,5 +30,12 @@ The problem
 ## For Production mode (node processor)
 -  OOps. It not have finished yet. Sorry about that
 
+## Before run please create new `.env` It was located at `./packages/email-service/.env`
+So, The env file had contained the important key like
+```
+SEND_GRID_KEY=<your sendgrid's key here>
+SPARKPOST_KEY=<your sparkpost's key here>
+```
+
 ## For starting a Docker (only Backend side)
 - docker-compose up
